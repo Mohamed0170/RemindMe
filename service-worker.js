@@ -7,7 +7,7 @@ self.addEventListener("activate", (event) => {
   console.log("✅ Service Worker activated");
 });
 
-// إشعار دفع (من الخادم)
+// 🔔 إشعار دفع (من الخادم)
 self.addEventListener("push", (event) => {
   const data = event.data ? event.data.json() : {};
   const title = data.title || "RemindMe";
@@ -16,6 +16,8 @@ self.addEventListener("push", (event) => {
     icon: "/ico-192x192.png",
     badge: "/ico-192x192.png",
     vibrate: [200, 100, 200],
+    sound: "/alarm.mp3", // ✅ ملف الصوت (ضعه في public)
+    requireInteraction: true
   };
 
   event.waitUntil(
@@ -23,7 +25,7 @@ self.addEventListener("push", (event) => {
   );
 });
 
-// إشعار محلي (يستقبل رسالة من التطبيق)
+// 🔔 إشعار محلي (من التطبيق)
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "LOCAL_REMINDER") {
     const { title, body, delay } = event.data;
@@ -34,6 +36,8 @@ self.addEventListener("message", (event) => {
         icon: "/ico-192x192.png",
         badge: "/ico-192x192.png",
         vibrate: [200, 100, 200],
+        sound: "/alarm.mp3", // ✅ صوت التنبيه
+        requireInteraction: true // يبقى الإشعار حتى المستخدم يضغطه
       });
     }, delay); // delay بالمللي ثانية
   }
@@ -46,4 +50,3 @@ self.addEventListener("notificationclick", (event) => {
     clients.openWindow("/") // يفتح التطبيق أو صفحة البداية
   );
 });
-
