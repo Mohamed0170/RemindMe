@@ -1,11 +1,11 @@
-
 export interface Reminder {
   id: string;
   originalText: string;
   task: string;
   conversationalText: string;
   triggerTime: number; // as timestamp
-  timeoutId: number;
+  // FIX: Updated timeoutId type to be compatible with the return type of setTimeout in different environments.
+  timeoutId: ReturnType<typeof setTimeout>;
 }
 
 export enum AppStatus {

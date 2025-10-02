@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { SettingsIcon } from '../constants';
 
@@ -8,9 +7,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
   return (
-    <header className="flex justify-between items-center py-4 border-b border-slate-200 dark:border-slate-700">
-      <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
-        RemindMe
+    <header className="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-700">
+      <h1 className="text-3xl font-bold tracking-tight">
+        <span className="text-blue-600 dark:text-blue-500">Remind</span>
+        <span className="text-green-500 dark:text-green-400">Me</span>
       </h1>
       <button
         onClick={onSettingsClick}

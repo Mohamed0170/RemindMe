@@ -9,11 +9,18 @@ declare global {
 
 const AdBanner: React.FC = () => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error("AdSense error:", err);
-    }
+    // Add a small delay to ensure the ad container is rendered and has a width
+    // before the AdSense script runs. This is a common fix for SPAs.
+    const timeout = setTimeout(() => {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error("AdSense error:", err);
+      }
+    }, 100);
+
+    // Cleanup the timeout if the component unmounts
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
