@@ -1,0 +1,27 @@
+{
+  "name": "RemindMe",
+  "short_name": "RemindMe",
+  "description": "A smart personal assistant to help you remember daily tasks through voice commands, featuring multilingual support and conversational alerts.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icons/ico-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/ico-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+  "id": "/",
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0f172a",
+}
