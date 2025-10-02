@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -9,14 +8,20 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
+
+// ⚡ طلب إذن الإشعارات عند تشغيل التطبيق
+if ("Notification" in window && Notification.permission !== "granted") {
+  Notification.requestPermission();
+}
+
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+);
 
-
-  
-  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+// ✅ إرسال رسالة للـ Service Worker بعد 20 ثانية (اختبار)
+if (navigator.serviceWorker && navigator.serviceWorker.controller) {
   navigator.serviceWorker.controller.postMessage({
     type: "LOCAL_REMINDER",
     title: "School Reminder",
@@ -25,5 +30,3 @@ root.render(
   });
 }
 
-  
-);
