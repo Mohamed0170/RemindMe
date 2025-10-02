@@ -1,0 +1,8 @@
+
+{
+  "name": "RemindMe",
+  "description": "A smart personal assistant to help you remember daily tasks through voice commands, featuring multilingual support and conversational alerts.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
