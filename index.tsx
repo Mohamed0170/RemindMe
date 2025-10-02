@@ -13,4 +13,17 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+
+
+  
+  if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+  navigator.serviceWorker.controller.postMessage({
+    type: "LOCAL_REMINDER",
+    title: "School Reminder",
+    body: "⏰ Time to go to school!",
+    delay: 20000 // بعد 20 ثانية
+  });
+}
+
+  
 );
